@@ -37,5 +37,5 @@ root.data = 53
 root.left = Tree()
 root.right = Tree()
 for i in range(0, len(array)):
-    addToBinaryTree(root, array[i])
+    addToBinaryTree(root, array[i]) # Yorum satırı eklendi
 print(root.right.right.right.data)
