@@ -29,7 +29,13 @@ def addToBinaryTree (root, data):
         addRight(temp, data)
     else:
         addLeft(temp, data)
-
+def spanTree(root):
+    if root.data:
+        spanTree(root.left)
+        print(root.data)
+        spanTree(root.right)
+    else:
+        return 0
 array = [74, 81, 1, 42, 5, 3, 41, 72, 71, 37, 51, 33, 15, 92, 17, 93, 52, 54]
 # We need to assign a root and than we can add a value to tree.
 root = Tree()
@@ -38,4 +44,5 @@ root.left = Tree()
 root.right = Tree()
 for i in range(0, len(array)):
     addToBinaryTree(root, array[i]) # Yorum satırı eklendi
-print(root.right.right.right.data)
+# print(root.right.right.right.data)
+spanTree(root)
