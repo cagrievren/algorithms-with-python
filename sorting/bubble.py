@@ -1,9 +1,7 @@
 import random
 
 def bubbleSort(array):
-    first = 0
     while(isSorted(array) == False):
-        first = 0
         for i in range(0, len(array) - 1):
             if(array[i] > array[i+1]):
                 temp = array[i]
