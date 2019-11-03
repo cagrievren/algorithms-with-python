@@ -44,19 +44,18 @@ def findData(root: Tree,data):
         elif data< temp.data:
             temp = temp.left
         else:
-            # temp.data = 0
-            print('ASDFASDF')
+            temp.data = findMostLeft(temp)
             return temp
     return 'bulunamadı'
-def deleteData(root: Tree, data):
-    temp = findData(root, data)
-    if type(findData(root, data))==str:
-        print ('bulunamadı')
-    else:
-        temp.data = data
-        return root
-    
 
+def findMostLeft (root: Tree):
+    temp = root.left
+    tempData = 0
+    while temp.right.data:
+        temp = temp.right
+    tempData = temp.data
+    temp = temp.left
+    return tempData
 
 array = [74, 81, 1, 42, 5, 3, 41, 72, 71, 37, 51, 33, 15, 92, 17, 93, 52, 54]
 # We need to assign a root and than we can add a value to tree.
@@ -70,6 +69,7 @@ for i in range(0, len(array)):
 print('BINARY TREE SORTED =>')
 # print (type(findData(72))==str)
 # deleteData(72)
+
 aTree : Tree()
-aTree = findData(root, 42)
-spanTree(aTree)
+aTree = findData(root,42)
+spanTree(root)
