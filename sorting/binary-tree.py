@@ -43,6 +43,7 @@ root.data = 53
 root.left = Tree()
 root.right = Tree()
 for i in range(0, len(array)):
-    addToBinaryTree(root, array[i]) # Yorum satırı eklendi
-# print(root.right.right.right.data)
+    addToBinaryTree(root, array[i])
+#print(root.right.right.right.data)
+print('BINARY TREE SORTED =>')
 spanTree(root)
