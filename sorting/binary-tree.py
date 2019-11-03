@@ -37,15 +37,25 @@ def spanTree(root):
     else:
         return 0
 def findData(root: Tree,data):
+    onceki = root
     temp = root 
     while temp.data:
+        onceki = temp
         if data > temp.data:
             temp = temp.right
-        elif data< temp.data:
+        elif data < temp.data:
             temp = temp.left
         else:
-            temp.data = findMostLeft(temp)
-            return temp
+            if temp.left.data:
+                findMostLeft(temp)
+            elif not (temp.right.data):
+                print('ÇALIŞ')
+                onceki.data = None
+                onceki.left = None
+                onceki.right = None
+            else:
+                onceki.right = temp.right
+                break
     return 'bulunamadı'
 
 def findMostLeft (root: Tree):
@@ -81,5 +91,6 @@ print('BINARY TREE SORTED =>')
 # deleteData(72)
 
 aTree : Tree()
-aTree = findData(root,62)
+for i in range(0, len(array)):
+    findData(root, array[i])
 spanTree(root)
