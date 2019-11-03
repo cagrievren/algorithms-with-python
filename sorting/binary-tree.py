@@ -49,18 +49,28 @@ def findData(root: Tree,data):
     return 'bulunamadı'
 
 def findMostLeft (root: Tree):
+    onceki = root
     temp = root.left
     tempData = 0
-    while temp.right.data:
-        temp = temp.right
-    tempData = temp.data
-    temp = temp.left
-    return tempData
+    if temp.data:
+        while temp.right.data:
+            onceki = temp
+            temp = temp.right
+        tempData = temp.data
+        if temp.left.data:
+            onceki.right = temp.left
+        else:
+            temp.left = None
+            temp.right = None
+            temp.data = None
+        return tempData
+    else:
+        print('Silinemedi')
 
-array = [74, 81, 1, 42, 5, 3, 41, 72, 71, 37, 51, 33, 15, 92, 17, 93, 52, 54]
+array = [ 12, 48, 8, 26, 38, 62, 3, 10 , 13, 30, 35 , 42, 49, 18 , 32, 47,31]
 # We need to assign a root and than we can add a value to tree.
 root = Tree()
-root.data = 53
+root.data = 33
 root.left = Tree()
 root.right = Tree()
 for i in range(0, len(array)):
@@ -71,5 +81,5 @@ print('BINARY TREE SORTED =>')
 # deleteData(72)
 
 aTree : Tree()
-aTree = findData(root,42)
+aTree = findData(root,62)
 spanTree(root)
