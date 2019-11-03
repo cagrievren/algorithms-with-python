@@ -36,6 +36,28 @@ def spanTree(root):
         spanTree(root.right)
     else:
         return 0
+def findData(root: Tree,data):
+    temp = root 
+    while temp.data:
+        if data > temp.data:
+            temp = temp.right
+        elif data< temp.data:
+            temp = temp.left
+        else:
+            # temp.data = 0
+            print('ASDFASDF')
+            return temp
+    return 'bulunamadı'
+def deleteData(root: Tree, data):
+    temp = findData(root, data)
+    if type(findData(root, data))==str:
+        print ('bulunamadı')
+    else:
+        temp.data = data
+        return root
+    
+
+
 array = [74, 81, 1, 42, 5, 3, 41, 72, 71, 37, 51, 33, 15, 92, 17, 93, 52, 54]
 # We need to assign a root and than we can add a value to tree.
 root = Tree()
@@ -46,4 +68,8 @@ for i in range(0, len(array)):
     addToBinaryTree(root, array[i])
 #print(root.right.right.right.data)
 print('BINARY TREE SORTED =>')
-spanTree(root)
+# print (type(findData(72))==str)
+# deleteData(72)
+aTree : Tree()
+aTree = findData(root, 42)
+spanTree(aTree)
